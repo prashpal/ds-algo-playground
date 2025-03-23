@@ -24,12 +24,14 @@ public:
         data = std::move(newData);
     }
 
+    // return a new sorted vector
     std::vector<T> getSorted() const {
         std::vector<T> sortedData = data;
         std::sort(sortedData.begin(), sortedData.end());
         return sortedData;
     }
 
+    // print data
     void print() {
         if (data.empty()) {
             std::cout << "Array is empty";
@@ -68,7 +70,6 @@ public:
                 T data2 = sortedData[start];
                 T data3 = sortedData[end];
                 T threesum = data1 + data2 + data3;
-                std::cout <<  "Result : " << threesum << "\n";
                 if (threesum == 0) {
                     result.push_back({data1, data2, data3});
                     ++start;
@@ -91,8 +92,14 @@ public:
         std::size_t left = 0;
         std::size_t right = size - 1;
         while (left < right) {
-            while (left < right && !std::isalnum(data[left])) ++left;
-            while (left < right && !std::isalnum(data[right])) --right;
+            if (!std::isalnum(data[left])) {
+                ++left;
+                continue;
+            }
+            if (!std::isalnum(data[right])) {
+                --right;
+                continue;
+            }
             if (std::tolower(data[left]) != std::tolower(data[right])) return false;
             ++left;
             --right;
