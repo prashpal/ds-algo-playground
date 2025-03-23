@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <string>
+#include <cctype>
 
 template <typename T>
 class Array {
@@ -90,7 +91,9 @@ public:
         std::size_t left = 0;
         std::size_t right = size - 1;
         while (left < right) {
-            if (data[left] != data[right]) return false;
+            while (left < right && !std::isalnum(data[left])) ++left;
+            while (left < right && !std::isalnum(data[right])) --right;
+            if (std::tolower(data[left]) != std::tolower(data[right])) return false;
             ++left;
             --right;
         }

@@ -33,4 +33,7 @@ TEST(array, ispalindrome) {
     str = "malayalam";
     input.setData(std::vector<char>(str.begin(), str.end()));
     EXPECT_TRUE(input.isPalindrome());
+    str = "Was it a car or a cat I saw?";
+    input.setData(std::vector<char>(str.begin(), str.end()));
+    EXPECT_TRUE(input.isPalindrome());
 }
