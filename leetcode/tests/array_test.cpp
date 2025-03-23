@@ -1,17 +1,17 @@
 #include <gtest/gtest.h>
 #include "array.h"
 
-// Test 1: Check for duplicates
+// 217. Contains Duplicate
 TEST(hasDuplicate, Yes) {
     Array<int> nums({1, 2, 3, 3});
     EXPECT_TRUE(nums.hasDuplicate());
 }
-
 TEST(hasDuplicate, No) {
     Array<int> nums({1, 2, 3, 4});
     EXPECT_FALSE(nums.hasDuplicate());
 }
 
+// 15. 3Sum (Solution times out on Leetcode. Investigate later.)
 TEST(ThreeSum, Yes) {
     Array<int> nums({-1,0,1,2,-1,-4});
     std::vector<std::vector<int>> result;

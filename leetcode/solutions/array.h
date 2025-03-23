@@ -34,6 +34,7 @@ public:
         }
     }
 
+    // 217. Contains Duplicate
     bool hasDuplicate() const{
         std::unordered_set<T> seen;
         for(T item: data) {
@@ -43,6 +44,7 @@ public:
         return false;
     }
 
+    // 15. 3Sum (Solution times out on Leetcode. Investigate later.)
     std::vector<std::vector<T>> threeSum() {
         std::vector<std::vector<T>> result;
         std::vector<T> sortedData = this->getSorted();
