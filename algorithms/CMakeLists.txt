@@ -20,7 +20,6 @@ enable_testing()
 add_executable(
   array_test
   tests/array_test.cpp
-  algo/src/array.cpp
 )
 target_include_directories(array_test PRIVATE ${CMAKE_SOURCE_DIR}/algo/include)
 target_link_libraries(
