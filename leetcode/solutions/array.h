@@ -4,16 +4,23 @@
 #include <unordered_set>
 #include <algorithm>
 #include <unordered_map>
+#include <string>
 
 template <typename T>
 class Array {
 public:
+    Array() = default;
     explicit Array(std::vector<T> input) : data(std::move(input)) {}
     ~Array() = default;
 
     // const reference returns a reference to avoid copying of entire data
     const std::vector<T>& getData() const{
         return data;
+    }
+
+    // use rvalue reference and move semantics to avoid copying
+    void setData(std::vector<T>&& newData) {
+        data = std::move(newData);
     }
 
     std::vector<T> getSorted() const {
@@ -74,6 +81,20 @@ public:
             }
         }
         return result;
+    }
+
+    // 125. Valid Palindrome
+    bool isPalindrome() const {
+        std::size_t size = data.size();
+        if (size < 2) return true;
+        std::size_t left = 0;
+        std::size_t right = size - 1;
+        while (left < right) {
+            if (data[left] != data[right]) return false;
+            ++left;
+            --right;
+        }
+        return true;
     }
 
 private:
