@@ -26,7 +26,7 @@ public:
     Node<T>* getRight() const {
         return this->right.get();
     }
-    void set(T&& input) {
+    void setData(T&& input) {
         data = std::move(input);
     }
     void setLeft(std::unique_ptr<Node<T>> input) {

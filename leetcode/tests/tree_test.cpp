@@ -6,7 +6,7 @@ using int_node = Node<int>;
 TEST(tree, printnode) {
     int_node node(5);
     EXPECT_EQ(5, node.getData());
-    node.set(10);
+    node.setData(10);
     EXPECT_EQ(10, node.getData());
 }
 
