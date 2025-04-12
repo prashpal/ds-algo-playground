@@ -27,5 +27,17 @@ target_link_libraries(
   GTest::gtest_main
 )
 
+# Add tree_test
+add_executable(
+  tree_test
+  tests/tree_test.cpp
+)
+target_include_directories(tree_test PRIVATE ${CMAKE_SOURCE_DIR}/solutions)
+target_link_libraries(
+  tree_test
+  GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(array_test)
+gtest_discover_tests(tree_test)
