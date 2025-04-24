@@ -10,7 +10,7 @@ TEST(array, hasduplicate) {
 }
 
 // 15. 3Sum (Solution times out on Leetcode. Investigate later.)
-TEST(Array, ThreeSum) {
+TEST(array, threesum) {
     Array<int> nums({-1,0,1,2,-1,-4});
     std::vector<std::vector<int>> result;
     result = nums.threeSum();
