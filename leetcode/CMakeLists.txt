@@ -1,4 +1,3 @@
-# filepath: my_project/CMakeLists.txt
 cmake_minimum_required(VERSION 3.14)
 project(my_project)
 
@@ -19,9 +18,9 @@ enable_testing()
 
 add_executable(
   array_test
-  tests/array_test.cpp
+  src/array_test.cpp
 )
-target_include_directories(array_test PRIVATE ${CMAKE_SOURCE_DIR}/solutions)
+target_include_directories(array_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_link_libraries(
   array_test
   GTest::gtest_main
@@ -30,9 +29,9 @@ target_link_libraries(
 # Add tree_test
 add_executable(
   tree_test
-  tests/tree_test.cpp
+  src/tree_test.cpp
 )
-target_include_directories(tree_test PRIVATE ${CMAKE_SOURCE_DIR}/solutions)
+target_include_directories(tree_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_link_libraries(
   tree_test
   GTest::gtest_main
