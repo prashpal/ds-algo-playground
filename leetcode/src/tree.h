@@ -2,49 +2,41 @@
 #include <iostream>
 #include <memory>
 
-template <typename T>
-class Node {
+class TreeNode {
 public:
-    Node() = default;
-    explicit Node(T input): data(std::move(input)), left(nullptr), right(nullptr) {}
-    ~Node() = default;
+    TreeNode(): val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int in_val): val(in_val), left(nullptr), right(nullptr) {}
+    TreeNode(int in_val, TreeNode* in_left, TreeNode* in_right): val(in_val), left(in_left), right(in_right) {}
+    ~TreeNode() = default;
 
-    // Deleted copy constructor and assignment operator
-    Node(const Node&) = delete;
-    Node& operator=(const Node&) = delete;
-
-    // Defaulted move constructor and assignment operator
-    Node(Node&&) = default;
-    Node& operator=(Node&&) = default;
-
-    const T& getData() const {
-        return this->data;
+    int getData() const {
+        return this->val;
     }
-    Node<T>* getLeft() const {
-        return this->left.get();
+    TreeNode* getLeft() const {
+        return this->left;
     }
-    Node<T>* getRight() const {
-        return this->right.get();
+    TreeNode* getRight() const {
+        return this->right;
     }
-    void setData(T&& input) {
-        data = std::move(input);
+    void setData(int in_val) {
+        val = in_val;
     }
-    void setLeft(std::unique_ptr<Node<T>> input) {
-        this->left = std::move(input);
+    void setLeft(TreeNode* in_left) {
+        this->left = in_left;
     }
-    void setRight(std::unique_ptr<Node<T>> input) {
-        this->right = std::move(input);
+    void setRight(TreeNode* in_right) {
+        this->right = in_right;
     }
 private:
-    T data;
-    std::unique_ptr<Node<T>> left;
-    std::unique_ptr<Node<T>> right;
+    int val;
+    TreeNode* left;
+    TreeNode* right;
 };
 
-template <typename T>
 class BinaryTree {
 public:
-    explicit BinaryTree(Node<T> input): root(std::move(input)) {}
+    BinaryTree() = delete;
+    BinaryTree(TreeNode in_root): root(in_root) {}
 private:
-    Node<T> root;
+    TreeNode root;
 };
