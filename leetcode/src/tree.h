@@ -2,32 +2,11 @@
 #include <iostream>
 #include <memory>
 
-class TreeNode {
-public:
+struct TreeNode {
     TreeNode(): val(0), left(nullptr), right(nullptr) {}
     TreeNode(int in_val): val(in_val), left(nullptr), right(nullptr) {}
     TreeNode(int in_val, TreeNode* in_left, TreeNode* in_right): val(in_val), left(in_left), right(in_right) {}
     ~TreeNode() = default;
-
-    int getData() const {
-        return this->val;
-    }
-    TreeNode* getLeft() const {
-        return this->left;
-    }
-    TreeNode* getRight() const {
-        return this->right;
-    }
-    void setData(int in_val) {
-        val = in_val;
-    }
-    void setLeft(TreeNode* in_left) {
-        this->left = in_left;
-    }
-    void setRight(TreeNode* in_right) {
-        this->right = in_right;
-    }
-private:
     int val;
     TreeNode* left;
     TreeNode* right;
@@ -35,8 +14,12 @@ private:
 
 class BinaryTree {
 public:
-    BinaryTree() = delete;
-    BinaryTree(TreeNode in_root): root(in_root) {}
-private:
-    TreeNode root;
+    // https://leetcode.com/problems/maximum-depth-of-binary-tree/description/ 
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+        else if (root->left == nullptr && root->right == nullptr) return 1;
+        else if (root->left != nullptr && root->right == nullptr) return (1 + maxDepth(root->left));
+        else if (root->left == nullptr && root->right != nullptr) return (1 + maxDepth(root->right)); 
+        else return (1 + std::max(maxDepth(root->left), maxDepth(root->right)));
+    }
 };
