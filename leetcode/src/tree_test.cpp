@@ -31,3 +31,18 @@ TEST(Tree, MaxDepth) {
     EXPECT_EQ(tree.maxDepth(root), 1);
 }
 
+TEST(Tree, GoodNodes) {
+    BinaryTree tree;
+    TreeNode* root = createTree({3, 1, 4, 3, -1, 1, 5});
+    EXPECT_EQ(tree.goodNodes(root), 4);
+
+    root = createTree({3, 3, -1, 4, 2});
+    EXPECT_EQ(tree.goodNodes(root), 3);
+
+    root = createTree({1});
+    EXPECT_EQ(tree.goodNodes(root), 1);
+
+    root = createTree({});
+    EXPECT_EQ(tree.goodNodes(root), 0);
+}
+
