@@ -30,6 +30,7 @@ target_link_libraries(
 add_executable(
   tree_test
   src/tree_test.cpp
+  src/tree.cpp
 )
 target_include_directories(tree_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_link_libraries(
