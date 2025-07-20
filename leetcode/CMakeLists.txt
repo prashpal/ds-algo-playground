@@ -18,7 +18,8 @@ enable_testing()
 
 add_executable(
   array_test
-  src/array_test.cpp
+  test/array_test.cpp
+  src/array.cpp
 )
 target_include_directories(array_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_link_libraries(
@@ -29,7 +30,7 @@ target_link_libraries(
 # Add tree_test
 add_executable(
   tree_test
-  src/tree_test.cpp
+  test/tree_test.cpp
   src/tree.cpp
 )
 target_include_directories(tree_test PRIVATE ${CMAKE_SOURCE_DIR}/src)

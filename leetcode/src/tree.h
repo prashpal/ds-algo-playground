@@ -11,8 +11,8 @@ struct TreeNode {
     TreeNode* right;
 };
 
-class BinaryTree {
+class TreeAlgorithms {
 public:
-    int maxDepth(TreeNode* root); // https://leetcode.com/problems/maximum-depth-of-binary-tree/description/ 
-    int goodNodes(TreeNode* root); // https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/
+    int maxDepth(TreeNode* root); // 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/description/ 
+    int goodNodes(TreeNode* root); // 1448 - https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/
 };

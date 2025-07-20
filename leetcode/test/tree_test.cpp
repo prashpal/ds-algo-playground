@@ -16,33 +16,35 @@ TreeNode* createTree(const std::vector<int>& values) {
     return nodes[0];
 }
 
+// 104 - https://leetcode.com/problems/maximum-depth-of-binary-tree/description/ 
 TEST(Tree, MaxDepth) {
-    BinaryTree tree;
+    TreeAlgorithms treeAlgo;
     TreeNode* root = createTree({1, 2, 3, 4, 5, -1, -1});
-    EXPECT_EQ(tree.maxDepth(root), 3);
+    EXPECT_EQ(treeAlgo.maxDepth(root), 3);
 
     root = createTree({1, 2, -1, 3});
-    EXPECT_EQ(tree.maxDepth(root), 3);
+    EXPECT_EQ(treeAlgo.maxDepth(root), 3);
 
     root = createTree({});
-    EXPECT_EQ(tree.maxDepth(root), 0);
+    EXPECT_EQ(treeAlgo.maxDepth(root), 0);
 
     root = createTree({1});
-    EXPECT_EQ(tree.maxDepth(root), 1);
+    EXPECT_EQ(treeAlgo.maxDepth(root), 1);
 }
 
+// 1448 - https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/
 TEST(Tree, GoodNodes) {
-    BinaryTree tree;
+    TreeAlgorithms treeAlgo;
     TreeNode* root = createTree({3, 1, 4, 3, -1, 1, 5});
-    EXPECT_EQ(tree.goodNodes(root), 4);
+    EXPECT_EQ(treeAlgo.goodNodes(root), 4);
 
     root = createTree({3, 3, -1, 4, 2});
-    EXPECT_EQ(tree.goodNodes(root), 3);
+    EXPECT_EQ(treeAlgo.goodNodes(root), 3);
 
     root = createTree({1});
-    EXPECT_EQ(tree.goodNodes(root), 1);
+    EXPECT_EQ(treeAlgo.goodNodes(root), 1);
 
     root = createTree({});
-    EXPECT_EQ(tree.goodNodes(root), 0);
+    EXPECT_EQ(treeAlgo.goodNodes(root), 0);
 }
 
