@@ -63,3 +63,51 @@ bool ArrayAlgorithms::isPalindrome(std::string s) {
     }
     return true;
 }
+
+// 704 - https://leetcode.com/problems/binary-search/description/
+int ArrayAlgorithms::search(std::vector<int>& nums, int target) {
+    size_t len = nums.size();
+    size_t left = 0;
+    size_t right = len - 1;
+    while (left <= right) {
+        size_t mid = left + (right - left) / 2;
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] < target) left = mid + 1;
+        else {
+            if (mid == 0) return -1; // Prevent underflow
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+
+// 153 - https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+// TODO: can be optimized further
+bool checkMin(const std::vector<int>& nums, size_t current_index) {
+    size_t len = nums.size();
+    size_t right_index = 0;
+    size_t left_index = 0;
+    if (current_index == 0) left_index = len - 1;
+    else left_index = current_index - 1;
+    if (current_index == len - 1) right_index = 0;
+    else right_index = current_index + 1;
+    if (nums[current_index] <= nums[left_index] && nums[current_index] <= nums[right_index]) return true;
+    return false;
+}
+int ArrayAlgorithms::findMin(std::vector<int>& nums) {
+    size_t len = nums.size();
+    if (len == 0) return -1;
+    else if (len == 1) return nums[0];
+    size_t left = 0;
+    size_t right = len - 1;
+    while (left <= right) {
+        size_t mid = left + (right - left) / 2;
+        if (checkMin(nums, mid)) return nums[mid];
+        else if (nums[mid] > nums[right]) left = mid + 1;
+        else {
+            if (mid == 0) return -1; // Prevent underflow
+            right = mid - 1;
+        }
+    }
+    return -1;
+}

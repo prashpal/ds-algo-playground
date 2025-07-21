@@ -38,3 +38,34 @@ TEST(array, ispalindrome) {
     str = "a.";
     EXPECT_TRUE(arrayAlgo.isPalindrome(str));
 }
+
+// 704 - https://leetcode.com/problems/binary-search/description/
+TEST(array, binarysearch) {
+    ArrayAlgorithms arrayAlgo;
+    std::vector<int> nums = {-1,0,3,5,9,12};
+    int target = 9;
+    EXPECT_EQ(4, arrayAlgo.search(nums, target));
+    target = 2;
+    EXPECT_EQ(-1, arrayAlgo.search(nums, target));
+    nums = {5};
+    target = 5;
+    EXPECT_EQ(0, arrayAlgo.search(nums, target));
+    target = -5;
+    EXPECT_EQ(-1, arrayAlgo.search(nums, target));
+    nums = {2, 5};
+    target = 0;
+    EXPECT_EQ(-1, arrayAlgo.search(nums, target));
+}
+
+// 153 - https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+TEST(array, findMin) {
+    ArrayAlgorithms arrayAlgo;
+    std::vector<int> nums = {3, 4, 5, 1, 2};
+    EXPECT_EQ(1, arrayAlgo.findMin(nums));
+    nums = {4, 5, 6, 7, 0, 1, 2};
+    EXPECT_EQ(0, arrayAlgo.findMin(nums));
+    nums = {11, 13, 15, 17};
+    EXPECT_EQ(11, arrayAlgo.findMin(nums));
+    nums = {3, 1};
+    EXPECT_EQ(1, arrayAlgo.findMin(nums));
+}
